@@ -1,6 +1,13 @@
 # react-native-safe-area
 React Native module to get Safe Area Insets for iOS 11 or later.
 
+# Installation
+
+```shell
+npm install --save react-native-safe-area
+react-native link
+```
+
 # How to use
 
 ```jsx
