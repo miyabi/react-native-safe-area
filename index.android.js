@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 class SafeArea {
   getSafeAreaInsetsForRootView() {
-    return Promise.resolve({ safeAreaInsets: { top: 0, left: 0, bottom: 0, right: 0 } });
+    return Promise.resolve({ safeAreaInsets: { top: 0, left: 0, bottom: 0, right: 0 } })
   }
 }
 
-module.exports = new SafeArea();
+module.exports = new SafeArea()

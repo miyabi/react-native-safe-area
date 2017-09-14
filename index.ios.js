@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import { NativeModules } from 'react-native';
+import { NativeModules } from 'react-native'
 
-const SafeArea = NativeModules.RNSafeArea;
+const SafeArea = NativeModules.RNSafeArea
 
-module.exports = SafeArea;
+module.exports = SafeArea
