@@ -20,9 +20,11 @@ RCT_EXPORT_METHOD(getSafeAreaInsetsForRootView:(RCTPromiseResolveBlock)resolve
         if (window) {
             UIViewController *rootViewController = window.rootViewController;
             if (rootViewController && rootViewController.view) {
-                if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){ 11, 0, 0 }]) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+                if (@available(iOS 11.0, *)) {
                     safeAreaInsets = rootViewController.view.safeAreaInsets;
                 }
+#endif
             }
         }
         
