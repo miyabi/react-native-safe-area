@@ -55,3 +55,7 @@ class App extends Component<{}> {
   }
 }
 ```
+
+## Examples
+
+A simple example project is [here](./Examples/RNSafeAreaExample).
