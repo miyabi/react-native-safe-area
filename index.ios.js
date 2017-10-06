@@ -6,13 +6,13 @@
 import { NativeModules, NativeEventEmitter } from 'react-native'
 import type EmitterSubscription from 'EmitterSubscription'
 
+export type SafeAreaInsets = { top: number, left: number, bottom: number, right: number };
+
 const nativeModule = NativeModules.RNSafeArea
 const nativeEventEmitter = new NativeEventEmitter(nativeModule)
 
 class SafeArea {
-  getSafeAreaInsetsForRootView(): Promise<{
-    safeAreaInsets: { top: number, left: number, bottom: number, right: number },
-  }> {
+  getSafeAreaInsetsForRootView(): Promise<{ safeAreaInsets: SafeAreaInsets }> {
     return nativeModule.getSafeAreaInsetsForRootView()
   }
 
