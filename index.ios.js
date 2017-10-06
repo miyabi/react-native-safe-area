@@ -1,7 +1,28 @@
+/**
+ * @flow
+ */
 'use strict'
 
-import { NativeModules } from 'react-native'
+import { NativeModules, NativeEventEmitter } from 'react-native'
+import type EmitterSubscription from 'EmitterSubscription'
 
-const SafeArea = NativeModules.RNSafeArea
+const nativeModule = NativeModules.RNSafeArea
+const nativeEventEmitter = new NativeEventEmitter(nativeModule)
 
-module.exports = SafeArea
+class SafeArea {
+  getSafeAreaInsetsForRootView(): Promise<{
+    safeAreaInsets: { top: number, left: number, bottom: number, right: number },
+  }> {
+    return nativeModule.getSafeAreaInsetsForRootView()
+  }
+
+  addEventListener(eventType: string, listener: Function, context: ?Object): ?EmitterSubscription {
+    return nativeEventEmitter.addListener(eventType, listener, context)
+  }
+
+  removeEventListener(eventType: string, listener: Function): void {
+    nativeEventEmitter.removeListener(eventType, listener)
+  }
+}
+
+export default new SafeArea()

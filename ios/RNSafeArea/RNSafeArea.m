@@ -7,10 +7,11 @@
 //
 
 #import "RNSafeArea.h"
+#import <React/RCTRootView.h>
 
 @implementation RNSafeArea
 
-RCT_EXPORT_MODULE();
+RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(getSafeAreaInsetsForRootView:(RCTPromiseResolveBlock)resolve
                   rejector:(RCTPromiseRejectBlock)reject) {
@@ -28,15 +29,54 @@ RCT_EXPORT_METHOD(getSafeAreaInsetsForRootView:(RCTPromiseResolveBlock)resolve
             }
         }
         
-        resolve(@{
-            @"safeAreaInsets": @{
-                @"top": @(safeAreaInsets.top),
-                @"left": @(safeAreaInsets.left),
-                @"bottom": @(safeAreaInsets.bottom),
-                @"right": @(safeAreaInsets.right),
-            },
-        });
+        resolve([self constructResult:safeAreaInsets]);
     });
+}
+
+#pragma mark - RCTEventEmitter implementation
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"safeAreaInsetsForRootViewDidChange"];
+}
+
+- (void)startObserving {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(safeAreaInsetsForRootViewDidChange:)
+                                                 name:RNSafeAreaInsetsForRootViewDidChangeNotification
+                                               object:nil];
+}
+
+- (void)stopObserving {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)safeAreaInsetsForRootViewDidChange:(NSNotification *)notification {
+    RCTRootView *rootView = (RCTRootView *)notification.object;
+    UIEdgeInsets safeAreaInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    if (rootView) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+        if (@available(iOS 11.0, *)) {
+            safeAreaInsets = rootView.safeAreaInsets;
+        }
+#endif
+    }
+    
+    [self sendEventWithName:@"safeAreaInsetsForRootViewDidChange"
+                       body:[self constructResult:safeAreaInsets]];
+}
+
+#pragma mark -
+
+- (NSDictionary *)constructResult:(UIEdgeInsets)safeAreaInsets {
+    return @{
+             @"safeAreaInsets": @{
+                     @"top": @(safeAreaInsets.top),
+                     @"left": @(safeAreaInsets.left),
+                     @"bottom": @(safeAreaInsets.bottom),
+                     @"right": @(safeAreaInsets.right),
+                     },
+             };
 }
 
 @end
