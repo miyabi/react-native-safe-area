@@ -5,6 +5,7 @@
   "main": "index",
   "scripts": {
     "lint": "eslint .",
+    "flow": "flow --show-all-errors",
     "test": "npm run lint"
   },
   "repository": {
@@ -23,8 +24,12 @@
   "homepage": "https://github.com/miyabi/react-native-safe-area#readme",
   "devDependencies": {
     "babel-eslint": "^8.0.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "^3.0.2",
     "eslint": "^4.6.1",
-    "eslint-plugin-react": "^7.3.0"
+    "eslint-plugin-flowtype": "^2.38.0",
+    "eslint-plugin-react": "^7.3.0",
+    "flow-bin": "^0.53.1",
+    "react-native": "^0.48.4"
   }
 }
