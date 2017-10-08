@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6DA7B8071F692C4C00FD1D50 /* RNSafeArea.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6DA7B8061F692C4C00FD1D50 /* RNSafeArea.h */; };
 		6DA7B8091F692C4C00FD1D50 /* RNSafeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA7B8081F692C4C00FD1D50 /* RNSafeArea.m */; };
+		6DF32F071F8A0670008A4854 /* RCTRootView+SafeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF32F061F8A0670008A4854 /* RCTRootView+SafeArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		6DA7B8031F692C4C00FD1D50 /* libRNSafeArea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSafeArea.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA7B8061F692C4C00FD1D50 /* RNSafeArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSafeArea.h; sourceTree = "<group>"; };
 		6DA7B8081F692C4C00FD1D50 /* RNSafeArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSafeArea.m; sourceTree = "<group>"; };
+		6DF32F051F8A0670008A4854 /* RCTRootView+SafeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTRootView+SafeArea.h"; sourceTree = "<group>"; };
+		6DF32F061F8A0670008A4854 /* RCTRootView+SafeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTRootView+SafeArea.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 			children = (
 				6DA7B8061F692C4C00FD1D50 /* RNSafeArea.h */,
 				6DA7B8081F692C4C00FD1D50 /* RNSafeArea.m */,
+				6DF32F051F8A0670008A4854 /* RCTRootView+SafeArea.h */,
+				6DF32F061F8A0670008A4854 /* RCTRootView+SafeArea.m */,
 			);
 			path = RNSafeArea;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DF32F071F8A0670008A4854 /* RCTRootView+SafeArea.m in Sources */,
 				6DA7B8091F692C4C00FD1D50 /* RNSafeArea.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
