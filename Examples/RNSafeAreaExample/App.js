@@ -4,13 +4,12 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  Platform,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 import SafeArea, { type SafeAreaInsets } from 'react-native-safe-area'
 
 type Props = {};
@@ -69,7 +68,7 @@ export default class App extends Component<Props, State> {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -89,4 +88,4 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
   },
-});
+})
