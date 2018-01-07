@@ -4,8 +4,29 @@ React Native module to retrieve safe area insets for iOS 11 or later.
 
 ## Installation
 
+### 1. Install library from `npm`
+
 ```shell
 npm install --save react-native-safe-area
+```
+
+### 2. Link native code
+
+You can link native code in the way you prefer:
+
+#### CocoaPods
+
+Add line to your project target section in your Podfile:
+
+```diff
++ pod 'react-native-safe-area', path: '../node_modules/react-native-safe-area'
+```
+
+#### react-native link
+
+Run command below:
+
+```shell
 react-native link react-native-safe-area
 ```
 
