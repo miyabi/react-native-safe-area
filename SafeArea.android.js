@@ -4,8 +4,7 @@
 'use strict'
 
 import type EmitterSubscription from 'EmitterSubscription'
-
-export type SafeAreaInsets = { top: number, left: number, bottom: number, right: number };
+import type { SafeAreaInsets } from './TypeDefinition'
 
 class SafeArea {
   getSafeAreaInsetsForRootView(): Promise<{ safeAreaInsets: SafeAreaInsets }> {

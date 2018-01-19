@@ -5,8 +5,7 @@
 
 import { NativeModules, NativeEventEmitter } from 'react-native'
 import type EmitterSubscription from 'EmitterSubscription'
-
-export type SafeAreaInsets = { top: number, left: number, bottom: number, right: number };
+import type { SafeAreaInsets } from './TypeDefinition'
 
 const nativeModule = NativeModules.RNSafeArea
 const nativeEventEmitter = new NativeEventEmitter(nativeModule)
