@@ -2,6 +2,8 @@
 
 React Native module to handle safe area insets natively for iOS 11 or later.
 
+![rnsf](https://user-images.githubusercontent.com/143255/40108466-e64b18d8-5935-11e8-992d-7fa7a636d129.gif)
+
 ## Installation
 
 ### 1. Install library from `npm`
