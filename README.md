@@ -1,6 +1,6 @@
 # react-native-safe-area
 
-React Native module to retrieve safe area insets for iOS 11 or later.
+React Native module to handle safe area insets natively for iOS 11 or later.
 
 ## Installation
 
@@ -32,6 +32,65 @@ react-native link react-native-safe-area
 
 ## Usage
 
+### Work with views
+
+Use `withSafeArea` to apply safe area insets to views automatically.
+
+```jsx
+import { withSafeArea } from 'react-native-safe-area'
+```
+
+#### withSafeArea(component[, applyTo][, direction])
+
+A higher-order component which applies safe area insets automatically to the wrapped component.
+
+- *component* - Wrapped component.
+- *applyTo* - (Optional) Specify property to apply safe area insets.
+    - `margin` - (Default) `style.margin`.
+    - `padding` - `style.padding`.
+    - `contentInset` - `contentInset` and `contentOffset` for scroll views.
+- *direction* - (Optional) Specify direction to apply safe area insets.
+    - `horizontal` - Apply to left and right.
+    - `vertical` - Apply to top and bottom.
+    - `both` - (Default) `horizontal` + `vertical`.
+
+##### Simple view example
+
+```jsx
+const SafeAreaView = withSafeArea(View, 'margin', 'both')
+
+class App extends Component<{}> {
+  render() {
+    return (
+      <SafeAreaView>
+        <View />
+      </SafeAreaView>
+    )
+  }
+}
+```
+
+##### ScrollView example
+
+```jsx
+const SafeAreaScrollView = withSafeArea(ScrollView, 'contentInset', 'vertical')
+
+class App extends Component<{}> {
+  render() {
+    return (
+      <SafeAreaScrollView>
+        <View />
+      </SafeAreaScrollView>
+    )
+  }
+}
+```
+
+You can also apply safe area insets to FlatList and SectionList.
+
+### Handle safe area manually
+
+
 ```jsx
 import SafeArea from 'react-native-safe-area'
 ```
@@ -42,7 +101,7 @@ If you want to use `SafeAreaInsets` type, you can import it like below:
 import SafeArea, { type SafeAreaInsets } from 'react-native-safe-area'
 ```
 
-### Retrieve safe area insets for root view
+#### Retrieve safe area insets for root view
 
 ```jsx
 SafeArea.getSafeAreaInsetsForRootView()
@@ -52,7 +111,7 @@ SafeArea.getSafeAreaInsetsForRootView()
   })
 ```
 
-### Handle safe area insets changed event
+#### Handle safe area insets changed event
 
 ```jsx
 class App extends Component<{}> {
