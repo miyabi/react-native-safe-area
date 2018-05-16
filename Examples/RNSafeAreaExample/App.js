@@ -10,63 +10,22 @@ import {
   Text,
   View
 } from 'react-native'
-import SafeArea, { type SafeAreaInsets } from 'react-native-safe-area'
+import { withSafeArea } from 'react-native-safe-area'
+
+const SafeAreaView = withSafeArea(View, 'margin', 'both')
 
 type Props = {};
-type State = {
-  safeAreaInsets: SafeAreaInsets,
-};
+type State = {};
 
 export default class App extends Component<Props, State> {
-  state = {
-    safeAreaInsets: {
-      top:0, left: 0, bottom: 0, right: 0,
-    },
-  }
-
-  // To keep the context of 'this'
-  onSafeAreaInsetsForRootViewChange = this.onSafeAreaInsetsForRootViewChange.bind(this)
-
-  componentWillMount() {
-    // Set initial safe area insets
-    SafeArea.getSafeAreaInsetsForRootView()
-      .then((result) => {
-        const { safeAreaInsets } = result
-        this.setState({ safeAreaInsets })
-      })
-  }
-
-  componentDidMount() {
-    // Add event listener
-    SafeArea.addEventListener('safeAreaInsetsForRootViewDidChange', this.onSafeAreaInsetsForRootViewChange)
-  }
-
-
-  componentWillUnmount() {
-    // Remove event listener
-    SafeArea.removeEventListener('safeAreaInsetsForRootViewDidChange', this.onSafeAreaInsetsForRootViewChange)
-  }
-
-  onSafeAreaInsetsForRootViewChange(result: { safeAreaInsets: SafeAreaInsets }) {
-    const { safeAreaInsets } = result
-    this.setState({ safeAreaInsets })
-  }
-
   render() {
-    const { safeAreaInsets } = this.state
-
     return (
       <View style={styles.container}>
-        <View style={[styles.content, {
-          marginTop: safeAreaInsets.top,
-          marginLeft: safeAreaInsets.left,
-          marginBottom: safeAreaInsets.bottom,
-          marginRight: safeAreaInsets.right,
-        }]}>
+        <SafeAreaView style={styles.content}>
           <Text style={styles.label}>
             {'It\'s safe!'}
           </Text>
-        </View>
+        </SafeAreaView>
       </View>
     )
   }
