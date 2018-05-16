@@ -37,6 +37,7 @@
       "warn",
       "never"
     ],
-    "no-unused-vars": ["warn", { "args": "none" }]
+    "no-unused-vars": ["warn", { "args": "none" }],
+    "react/prop-types": "off"
   }
 }
