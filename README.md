@@ -46,15 +46,15 @@ import { withSafeArea } from 'react-native-safe-area'
 
 A higher-order component which applies safe area insets automatically to the wrapped component.
 
-- *component* - Wrapped component.
-- *applyTo* - (Optional) Specify property to apply safe area insets.
-    - `margin` - (Default) `style.margin`.
+- `component` : *Component* - Wrapped component.
+- `applyTo` : *string* - (Optional) Specify property to apply safe area insets.
+    - `margin` - `style.margin`. (Default)
     - `padding` - `style.padding`.
     - `contentInset` - `contentInset` and `contentOffset` for scroll views.
-- *direction* - (Optional) Specify direction to apply safe area insets.
+- `direction` : *string* - (Optional) Specify direction to apply safe area insets.
     - `horizontal` - Apply to left and right.
     - `vertical` - Apply to top and bottom.
-    - `both` - (Default) `horizontal` + `vertical`.
+    - `both` - `horizontal` + `vertical`. (Default)
 
 ##### Simple view example
 
@@ -90,8 +90,19 @@ class App extends Component<{}> {
 
 You can also apply safe area insets to FlatList and SectionList.
 
-### Handle safe area manually
+#### Enhanced component's APIs
 
+##### get `wrappedRef` : *ref*
+
+Returns wrapped component's ref.
+
+##### get `currentSafeAreaInsets` : *SafeAreaInsets*
+
+Returns current safe area insets.
+
+---
+
+### Handle safe area manually
 
 ```jsx
 import SafeArea from 'react-native-safe-area'
