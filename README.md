@@ -53,9 +53,13 @@ A higher-order component which applies safe area insets automatically to the wra
     - `absolutePosition` - `style.top`, `style.bottom`, `style.left` and `style.right`.
     - `contentInset` - `contentInset` and `contentOffset` for scroll views.
 - `direction` : *string* - (Optional) Specify direction to apply safe area insets.
-    - `horizontal` - Apply to left and right.
-    - `vertical` - Apply to top and bottom.
-    - `both` - `horizontal` + `vertical`. (Default)
+    - `top` - Apply to top.
+    - `bottom` - Apply to bottom.
+    - `left` - Apply to left.
+    - `right` - Apply to right.
+    - `horizontal` - `left` + `right`.
+    - `vertical` - `top` + `bottom`.
+    - `all` - `horizontal` + `vertical`. (Default)
 
 ##### Simple view example
 
