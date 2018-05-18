@@ -50,6 +50,7 @@ A higher-order component which applies safe area insets automatically to the wra
 - `applyTo` : *string* - (Optional) Specify property to apply safe area insets.
     - `margin` - `style.margin`. (Default)
     - `padding` - `style.padding`.
+    - `absolutePosition` - `style.top`, `style.bottom`, `style.left` and `style.right`.
     - `contentInset` - `contentInset` and `contentOffset` for scroll views.
 - `direction` : *string* - (Optional) Specify direction to apply safe area insets.
     - `horizontal` - Apply to left and right.
