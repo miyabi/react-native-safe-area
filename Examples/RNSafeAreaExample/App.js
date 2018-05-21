@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { withSafeArea } from 'react-native-safe-area'
 
-const SafeAreaView = withSafeArea(View, 'margin', 'both')
+const SafeAreaView = withSafeArea(View, 'margin', 'all')
 
 type Props = {};
 type State = {};

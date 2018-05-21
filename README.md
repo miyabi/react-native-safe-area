@@ -64,7 +64,7 @@ A higher-order component which applies safe area insets automatically to the wra
 ##### Simple view example
 
 ```jsx
-const SafeAreaView = withSafeArea(View, 'margin', 'both')
+const SafeAreaView = withSafeArea(View, 'margin', 'all')
 
 class App extends Component<{}> {
   render() {
