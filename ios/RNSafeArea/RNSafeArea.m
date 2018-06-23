@@ -32,6 +32,10 @@ RCT_EXPORT_METHOD(getSafeAreaInsetsForRootView:(RCTPromiseResolveBlock)resolve
     return self;
 }
 
++ (BOOL)requiresMainQueueSetup {
+    return YES;
+}
+
 - (CGFloat)statusBarHeight {
     UIApplication *sharedApplication = RCTSharedApplication();
     
