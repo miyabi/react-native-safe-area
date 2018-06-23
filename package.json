@@ -14,7 +14,9 @@
   },
   "keywords": [
     "react-native",
-    "ios"
+    "ios",
+    "iPhoneX",
+    "SafeArea"
   ],
   "author": "Masayuki Iwai <miyabi@mybdesign.com> (http://mybdesign.com/)",
   "license": "MIT",
