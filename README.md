@@ -57,9 +57,13 @@ A higher-order component which applies safe area insets automatically to the wra
     - `bottom` - Apply to bottom.
     - `left` - Apply to left.
     - `right` - Apply to right.
+    - `topAndLeft` - `top` + `left`.
+    - `topAndRight` - `top` + `right`.
+    - `bottomAndLeft` - `bottom` + `left`.
+    - `bottomAndRight` - `bottom` + `right`.
     - `horizontal` - `left` + `right`.
-    - `horizontalAndTop` - `horizontal`+ `top`.
-    - `horizontalAndBottom` - `horizontal`+ `bottom`.
+    - `horizontalAndTop` - `horizontal` + `top`.
+    - `horizontalAndBottom` - `horizontal` + `bottom`.
     - `vertical` - `top` + `bottom`.
     - `verticalAndLeft` - `vertical` + `left`.
     - `verticalAndRight` - `vertical` + `right`.
