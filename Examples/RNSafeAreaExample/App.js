@@ -8,7 +8,7 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native'
 import { withSafeArea } from 'react-native-safe-area'
 
