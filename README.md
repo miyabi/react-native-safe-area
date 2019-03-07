@@ -21,7 +21,33 @@ You can link native code in the way you prefer:
 Add line to your project target section in your Podfile:
 
 ```diff
-+ pod 'react-native-safe-area', path: '../node_modules/react-native-safe-area'
+target 'YourProjectTarget' do
+
++   pod 'react-native-safe-area', path: '../node_modules/react-native-safe-area'
+
+end
+```
+
+If you received error `jest-haste-map: Haste module naming collision: Duplicate module name: react-native`, add lines below to your Podfile and reinstall pods.
+
+```diff
+target 'YourProjectTarget' do
+
++   rn_path = '../node_modules/react-native'
++   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
++   pod 'React', path: rn_path
+
+  pod 'react-native-safe-area', path: '../node_modules/react-native-safe-area'
+
+end
+
++ post_install do |installer|
++   installer.pods_project.targets.each do |target|
++     if target.name == "React"
++       target.remove_from_project
++     end
++   end
++ end
 ```
 
 #### react-native link
