@@ -1,15 +1,19 @@
-/// <reference types="react" />
 
 declare module 'react-native-safe-area' {
+    import { ComponentType } from 'react'
 
     // from `TypeDefinition.js`
     type SafeAreaInsets = { top: number; left: number; bottom: number; right: number };
 
+    type EventType = 'safeAreaInsetsForRootViewDidChange'
+
+    type EventPayload = { safeAreaInsets: SafeAreaInsets }
+
     // from `SafeArea.[ios|android].js`
     export default class SafeArea {
-        static getSafeAreaInsetsForRootView(): Promise<{ safeAreaInsets: SafeAreaInsets }> {}
-        static addEventListener(eventType: string, listener: (...args: any[]) => any, context?: any) 
-        static removeEventListener(eventType: string, listener: (...args: any[]) => any) 
+        static getSafeAreaInsetsForRootView(): Promise<EventPayload>
+        static addEventListener(eventType: EventType, listener: (payload: EventPayload) => void): void 
+        static removeEventListener(eventType: EventType, listener: (payload: EventPayload) => void): void
     }
 
     // from `withSafeArea.js`
@@ -34,9 +38,15 @@ declare module 'react-native-safe-area' {
         | 'horizontalAndBottom'
         | 'all';
 
-    export function withSafeArea(
-        WrappedComponent: React.ComponentType<any>,
-        applyTo: 'margin' | 'padding' | 'absolutePosition' | 'contentInset' = 'margin',
-        direction: Direction = 'all',
-    ): React.ComponentType<any>;
+    export function withSafeArea<P>(
+        WrappedComponent: React.ComponentType<P>,
+        /**
+         * @default 'margin'
+         */
+        applyTo: 'margin' | 'padding' | 'absolutePosition' | 'contentInset',
+        /**
+         * @default 'all'
+         */
+        direction: Direction,
+    ): ComponentType<P>;
 }

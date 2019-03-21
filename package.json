@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "React Native module to get Safe Area Insets for iOS 11 or later",
   "main": "lib/index",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint lib",
     "flow": "flow --show-all-errors",
@@ -34,5 +35,8 @@
     "flow-bin": "^0.86.0",
     "react": "^16.8.3",
     "react-native": "^0.58.6"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.8"
   }
 }
