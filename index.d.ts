@@ -43,10 +43,10 @@ declare module 'react-native-safe-area' {
         /**
          * @default 'margin'
          */
-        applyTo: 'margin' | 'padding' | 'absolutePosition' | 'contentInset',
+        applyTo?: 'margin' | 'padding' | 'absolutePosition' | 'contentInset',
         /**
          * @default 'all'
          */
-        direction: Direction,
+        direction?: Direction,
     ): ComponentType<P>;
 }
