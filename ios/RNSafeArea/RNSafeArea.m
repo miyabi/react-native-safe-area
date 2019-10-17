@@ -32,6 +32,18 @@ RCT_EXPORT_METHOD(getSafeAreaInsetsForRootView:(RCTPromiseResolveBlock)resolve
     return self;
 }
 
+- (NSDictionary *)constantsToExport {
+  UIEdgeInsets safeAreaInsets = [self safeAreaInsetsForRootView];
+  return @{
+    @"initialInsets": @{
+      @"top": @(safeAreaInsets.top),
+      @"left": @(safeAreaInsets.left),
+      @"bottom": @(safeAreaInsets.bottom),
+      @"right": @(safeAreaInsets.right),
+    },
+  };
+}
+
 + (BOOL)requiresMainQueueSetup {
     return YES;
 }

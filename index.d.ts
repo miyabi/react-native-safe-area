@@ -11,6 +11,7 @@ declare module 'react-native-safe-area' {
 
     // from `SafeArea.[ios|android].js`
     export default class SafeArea {
+        static getInitialInsets(): SafeAreaInsets
         static getSafeAreaInsetsForRootView(): Promise<EventPayload>
         static addEventListener(eventType: EventType, listener: (payload: EventPayload) => void): void 
         static removeEventListener(eventType: EventType, listener: (payload: EventPayload) => void): void
